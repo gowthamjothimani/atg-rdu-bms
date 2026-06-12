@@ -9,7 +9,7 @@ function BatteryCard({ device, onRemove }) {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch(`http://localhost:5000/api/devices/${device.id}/data`)
+      fetch(`http://localhost:5100/api/devices/${device.id}/data`)
         .then(res => res.json())
         .then(data => {
           if (data.success && data.data) {
@@ -24,7 +24,7 @@ function BatteryCard({ device, onRemove }) {
     };
 
     const checkDeviceStatus = () => {
-      fetch(`http://localhost:5000/api/devices/${device.id}/status`)
+      fetch(`http://localhost:5100/api/devices/${device.id}/status`)
         .then(res => res.json())
         .then(status => {
           setIsOnline(status.is_online);
@@ -45,7 +45,7 @@ function BatteryCard({ device, onRemove }) {
   }, [device.id]);
 
   const handleToggleLogging = () => {
-    fetch(`http://localhost:5000/api/devices/${device.id}/logging`, {
+    fetch(`http://localhost:5100/api/devices/${device.id}/logging`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ enable: !loggingEnabled }),

@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     const fetchData = () => {
       // Fetch devices and status
-      fetch('http://localhost:5100/api/devices')
+      fetch('http://localhost:5000/api/devices')
         .then(res => res.json())
         .then(data => setDevices(data))
         .catch(err => console.error('Error fetching devices:', err));
