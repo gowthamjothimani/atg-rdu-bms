@@ -48,8 +48,8 @@ echo ================================
 echo Startup Complete!
 echo ================================
 echo.
-echo Backend API: http://localhost:5000
-echo Frontend UI: http://localhost:3000
+echo Backend API: http://localhost:5100
+echo Frontend UI: http://localhost:3100
 echo.
 echo Dashboard will open automatically in your browser
 echo Press Ctrl+C in each window to stop the servers

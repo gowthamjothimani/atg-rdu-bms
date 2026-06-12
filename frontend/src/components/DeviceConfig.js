@@ -28,7 +28,7 @@ function DeviceConfig({ devices, setDevices }) {
       return;
     }
 
-    fetch('http://localhost:5000/api/devices', {
+    fetch('http://localhost:5100/api/devices', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -41,7 +41,7 @@ function DeviceConfig({ devices, setDevices }) {
           setSuccess(`Device "${data.name}" added successfully!`);
           setFormData({ name: '', ip: '', port: 502 });
           // Refresh devices list
-          fetch('http://localhost:5000/api/devices')
+          fetch('http://localhost:5100/api/devices')
             .then(res => res.json())
             .then(data => setDevices(data))
             .catch(err => console.error('Error fetching devices:', err));
@@ -60,7 +60,7 @@ function DeviceConfig({ devices, setDevices }) {
 
   const handleRemoveDevice = (deviceId) => {
     if (window.confirm('Are you sure you want to remove this device?')) {
-      fetch(`http://localhost:5000/api/devices/${deviceId}`, {
+      fetch(`http://localhost:5100/api/devices/${deviceId}`, {
         method: 'DELETE',
       })
         .then(res => res.json())

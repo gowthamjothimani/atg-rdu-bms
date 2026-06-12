@@ -26,7 +26,7 @@ function DataLog({ devices }) {
 
   const fetchLogs = () => {
     setLoading(true);
-    fetch(`http://localhost:5000/api/logs/${selectedDeviceId}?limit=100`)
+    fetch(`http://localhost:5100/api/logs/${selectedDeviceId}?limit=100`)
       .then(res => res.json())
       .then(data => {
         // Reverse to get chronological order
@@ -60,7 +60,7 @@ function DataLog({ devices }) {
     setDownloadingId(selectedDeviceId);
     const deviceName = devices.find(d => d.id === selectedDeviceId)?.name || 'Battery';
     
-    fetch(`http://localhost:5000/api/logs/${selectedDeviceId}/export`)
+    fetch(`http://localhost:5100/api/logs/${selectedDeviceId}/export`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Export failed');

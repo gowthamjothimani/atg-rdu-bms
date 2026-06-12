@@ -18,7 +18,7 @@ function Dashboard({ devices, setDevices }) {
   };
 
   const handleRemoveDevice = (deviceId) => {
-    fetch(`http://localhost:5000/api/devices/${deviceId}`, {
+    fetch(`http://localhost:5100/api/devices/${deviceId}`, {
       method: 'DELETE',
     })
       .then(res => res.json())
